@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo</title>
-</head>
-<body>
-    <h1>Today is <%= day %>, It is a <%= kindOfDay %></h1>
-</body>
-</html>
+
+    <%- include("header") -%>
+
+    <div class="box" id="heading">
+        <h1><%= listType %></h1>
+    </div>
+
+    <div class="box">
+        <% for(let item of items){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= item %></p>
+            </div>
+        <% } %>
+        <form action="/" method="post">
+            <input type="text" name="listItem" id="listItem" placeholder="New Item">
+            <button name="list" type="submit" value=<%= listType %> >+</button>
+        </form>
+    </div>  
+
+    <%- include("footer") -%>
